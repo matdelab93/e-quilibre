@@ -1,3 +1,5 @@
+
+
 version: 2
 
 sources:
@@ -5,6 +7,9 @@ sources:
     schema: e_quilibre_source
     description: e_quilibre raw data sources
     tables:
+
+
+    
       - name: communes
         identifier: communes_et_villes_de_france
         description: communes de france avec données démographiques et géographiques
@@ -14,13 +19,161 @@ sources:
             tests:
               - unique
               - not_null
+          - name: nom_standard
+            description: "Nom normalisé de la commune, avec son article (ex: Le Havre)"
+          - name: nom_standard_majuscule
+            description: "Nom de la commune en majuscule (ex: LE HAVRE)"
+          - name: typecom_texte
+            description: "Type de la commune en version textuelle"
+          - name: reg_code
+            description: "Code région assigné par l'INSEE à la région de la commune)"
+          - name: reg_nom
+            description: "Nom de la région où est située la commune"
+          - name: dep_nom
+            description: "Nom du département où est située la commune"
+          - name: canton_code
+            description: "Code Canton de la commune"
+          - name: canton_nom
+            description: "Nom du canton de la commune"
+          - name: code_postal
+            description: "Code postal principal la commune"
+          - name: codes_postaux
+            description: "Codes postaux rattachés à la commune"
+          - name: population
+            description: "Population municipale"
+          - name: superficie_km2
+            description: "Superficie de la commune, en km2"
+          - name: superficie_km2
+            description: "Superficie de la commune, en km2"
+          - name: densite
+            description: "Densité de la commune, en habitant au km2"
+          - name: latitude_mairie
+            description: "Latitude de la mairie"
+          - name: longitude_mairie
+            description: "Longitude de la mairie"
+          - name: grille_densite
+            description: "Grille communale de densité à 7 niveaux, selon l'INSEE"
+          - name: grille_densite_texte
+            description: "Texte de la grille communale de densité à 7 niveaux, selon l'INSEE"  
+            
       - name: IRVE_data
         identifier: infrastructures_de_recharge_pour_vehicules_electriques
         description: implantation géographique des bornes de recharge et leurs caractéristiques techniques 
+        columns:
+          - name: nom_station 
+            description: "Le nom de la station"
+          - name: implantation_station
+            description: "Le type d'implantation de la station Voirie, Parking public, Parking privé à usage public, Parking privé réservé à la clientèle, Station dédiée à la recharge rapide"
+          - name: adresse_station
+            description: "L'adresse complète de la station : [numéro] [rue] [code postal] [ville].Exemple : 1 avenue de la Paix 75001 Paris"
+          - name: code_insee_commune 
+            description: " Le code INSEE de la commune d'implantation"
+          - name: coordonneesXY
+            description: "La longitude suivie de la latitude en degrés décimaux (point comme séparateur décimal) de la localisation de la station exprimée dans le système de coordonnées WGS84 au format [lon,lat]"
+          - name: puissance_nominale
+            description: "Puissance maximale en kW que peut recevoir un véhicule connecté au point de recharge, déterminée en prenant en compte les capacités techniques propres du point, la puissance souscrite au réseau de distribution et les caractéristiques de l'installation comme le câblage par exemple, mais sans prendre en compte ni les limitations du connecteur ni celles du véhicule."
+          - name: dprise_type_ef
+            description: "Disponibilité d'une prise de type E/F sur le point de recharge"
+          - name: prise_type_2
+            description: "Disponibilité d'une prise de type 2 sur le point de recharge"
+          - name: prise_type_combo_ccs
+            description: "Disponibilité d'une prise de type Combo / CCS sur le point de recharge"
+          - name: prise_type_chademo
+            description: "Disponibilité d'une prise de type Chademo sur le point de recharge"
+          - name: prise_type_autre
+            description: "Disponibilité d'une prise d'un autre type sur le point de recharge"
+          - name: gratuit
+            description: "Gratuité de la recharge"
+          - name: paiement_acte
+            description: "Possibilité de paiement à l'acte (sans identification ni abonnement)"
+          - name: paiement_cb
+            description: "Possibilité de paiement par carte bancaire (présence d'un terminal de paiement avec une CB)"
+          - name: paiement_autre
+            description: "Possibilité de paiement par un autre moyen (qui peut être précisé dans le champs observation"
+          - name: tarification
+            description: "Toutes informations pouvant être apportées concernant les tarification(s) pratiquée(s"
+          - name: date_mise_en_service
+            description: " Date de mise en service de la station"
+          - name: consolidated_longitude
+            description: "longitude"
+          - name: consolidated_latitude
+            description: "latitude"
+          - name: consolidated_commune
+            description: "consolidation de la colonne commune"
+          - name: consolidated_is_code_insee_verified
+            description: "consolidation de la colonne insee"
+          - name: consolidated_is_code_insee_modified
+            description: "consolidation de la colonne insee modifiée"
+
+
+
       - name: registre_national_electricite
         identifier: registre_national_electricite
         description: registre présente les installations de production et de stockage délectricité raccordées directement ou indirectement aux réseaux publics d’électricité en France métropolitaine et dans les zones non interconnectées (ZNI) au 31 décembre 2024.  
+        columns:
+          - name: codeIRIS 
+            description: "Le code IRIS constitue la localisation la plus fine pour le positionnement de l’installation"
+          - name: codeINSEECommune 
+            description: "Les informations de localisation sont représentées par le code IRIS et le code INSEE du point de livraison"
+          - name: commune
+            description: "Nom de la commune"
+          - name: codeEPCI 
+            description: "Code de l’EPCI est déterminé à partir du code commune INSEE du point de livraison de l'installation (posteSource)"
+          - name: EPCI
+            description: "Libellé de l’EPCI"
+          - name: codeDepartement
+            description: "Numéro de département"
+          - name: departement
+            description: "Nom du département"
+          - name: codeRegion
+            description: "Code officiel géographique de l'Insee"
+          - name: codeDepartement
+            description: "Numéro de département"
+          - name: region
+            description: "Nom de la région"
+          - name: dateMiseEnService 
+            description: "Date de mise en service industrielle, vue du gestionnaire de réseau auquel est raccordée l’installation. L’installation est dans ce cas active"
+          - name: posteSource
+            description: "Coderence du poste source"
+          - name: tensionRaccordement
+            description: "La tension de raccordement correspond au niveau de tension auquel l’installation est raccordée au réseau public d’électricité"
+          - name: Filière
+            description: "fillière libellée"
+          - name: Combustible
+            description: "combustible libellé"
+          - name: Technologie 
+            description: "type de technologie utilisée"
+          - name: puisMaxInstallee
+            description: "a puissance maximale installée puissance maximale qui peut être produite (n’a de sens que pour les fonctions production et réversible)(Unité: kW)"
+          - name: energieAnnuelleGlissanteInjectee
+            description: "Energie annuelle glissante sur les 12 derniers, injectée sur le réseau à partir d’un moyen de production.(Unité: kWh)"
+          - name: energieAnnuelleGlissanteProduit
+            description: "Energie annuelle glissante sur les 12 derniers mois, produite sur le réseau à partir d’un moyen de production y compris l’autoconsommation (actuellement donnée disponible sur le réseau RTE).(Unité: kWh)"
+          - name: energieAnnuelleGlissanteSoutiree
+            description: "Energie annuelle glissante sur les 12 derniers mois consommée sur le réseau par le moyen de production.(Unité: kWh)"
+          - name: energieAnnuelleGlissanteStockee
+            description: "Energie annuelle glissante sur les 12 derniers mois stockée par le moyen de production (pour les moyens de stockage uniquement).(Unité: kWh)"
+          - name: nbInstallation
+            description: "le nombre d’installations dans le cas des «Agrégation des installations de moins de 36KW)"
+
+
+
+
       - name: immatriculations_data
         identifier: voitures_par_commune_par_energie
         description: nombre d’immatriculation par communes
-
+        columns:
+          - name: CODEGEO
+            description: "Code Insee de la commune"
+          - name: LIBGEO
+            description: "Libellé de la commune"
+          - name: EPCI
+            description: "Code EPCI de la commune"
+          - name: LIBEPCI
+            description: "Libellé EPCI de la commune"
+          - name: DATE_ARRETE
+            description: "Date «photo» du parc automobile"
+          - name: NB_VP_RECHARGEABLES_EL
+            description: "Nombre de voitures immatriculées dans la commune nécessitant une borne de recharge électrique"
+          - name: NB_VP
+            description: "Nombre de voitures immatriculées dans la commune"
