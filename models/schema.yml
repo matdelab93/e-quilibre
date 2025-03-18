@@ -8,6 +8,12 @@ sources:
       - name: communes
         identifier: communes_et_villes_de_france
         description: communes de france avec données démographiques et géographiques
+        columns:
+          - name: code_insee
+            description: Code INSEE unique pour chaque commune
+            tests:
+              - unique
+              - not_null
       - name: IRVE_data
         identifier: infrastructures_de_recharge_pour_vehicules_electriques
         description: implantation géographique des bornes de recharge et leurs caractéristiques techniques 
