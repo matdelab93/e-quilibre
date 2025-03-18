@@ -1,0 +1,20 @@
+version: 2
+
+sources:
+  - name: Dataset_e_quilibre
+    schema: e_quilibre_source
+    description: e_quilibre raw data sources
+    tables:
+      - name: communes
+        identifier: communes_et_villes_de_france
+        description: communes de france avec données démographiques et géographiques
+      - name: IRVE_data
+        identifier: infrastructures_de_recharge_pour_vehicules_electriques
+        description: implantation géographique des bornes de recharge et leurs caractéristiques techniques 
+      - name: registre_national_electricite
+        identifier: registre_national_electricite
+        description: registre présente les installations de production et de stockage délectricité raccordées directement ou indirectement aux réseaux publics d’électricité en France métropolitaine et dans les zones non interconnectées (ZNI) au 31 décembre 2024.  
+      - name: immatriculations_data
+        identifier: voitures_par_commune_par_energie
+        description: nombre d’immatriculation par communes
+
