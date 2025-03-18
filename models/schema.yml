@@ -15,7 +15,10 @@ sources:
         description: communes de france avec données démographiques et géographiques
         columns:
           - name: code_insee
-            description: "Code commune, Code INSEE, Code assigné par l'INSEE à la commune"
+            description: Code INSEE unique pour chaque commune
+            tests:
+              - unique
+              - not_null
           - name: nom_standard
             description: "Nom normalisé de la commune, avec son article (ex: Le Havre)"
           - name: nom_standard_majuscule
@@ -52,7 +55,7 @@ sources:
             description: "Grille communale de densité à 7 niveaux, selon l'INSEE"
           - name: grille_densite_texte
             description: "Texte de la grille communale de densité à 7 niveaux, selon l'INSEE"  
-
+            
       - name: IRVE_data
         identifier: infrastructures_de_recharge_pour_vehicules_electriques
         description: implantation géographique des bornes de recharge et leurs caractéristiques techniques 
