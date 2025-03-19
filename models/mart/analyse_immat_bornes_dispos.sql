@@ -25,6 +25,6 @@ subquery_2 AS(
 SELECT 
 sub_1.*
 ,sub_2.*
-FROM subquery_2 AS sub_2
-LEFT JOIN subquery_1 AS sub_1
+FROM subquery_1 AS sub_1
+LEFT JOIN subquery_2 AS sub_2
 ON sub_1.code_insee_commune = sub_2.CODGEO
