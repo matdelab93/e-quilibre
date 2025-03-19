@@ -4,7 +4,7 @@ select
     adresse_station,
     code_insee_commune,
     coordonneesxy,
-    puissance_nominale,
+    CAST(puissance_nominale AS FLOAT64) AS puissance_nominale,
     prise_type_ef,
     prise_type_2,
     prise_type_combo_ccs,
