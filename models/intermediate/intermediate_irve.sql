@@ -20,6 +20,7 @@ select
     consolidated_latitude,
     consolidated_commune,
     consolidated_is_code_insee_verified,
-    consolidated_is_code_insee_modified
+    consolidated_is_code_insee_modified,
+    consolidated_latitude||","||consolidated_longitude AS coord_lat_lon
 from {{ ref("stg_Dataset_e_quilibre__IRVE_data") }}
 
