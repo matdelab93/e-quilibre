@@ -1,6 +1,7 @@
 select
     nom_station,
-    id_station_local
+    id_station_local,
+    id_pdc_local,
     adresse_station,
     code_insee_commune,
     coordonneesxy,
