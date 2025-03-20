@@ -8,10 +8,10 @@ WITH subquery_1 AS (
     , population
     , grille_densite
     , grille_densite_texte
-    , nbre_pdc
+    , SUM (nbre_pdc) AS nb_pdc
     , COUNT (nom_station) AS nb_station
     FROM {{ ref('intermediate_irve_city_join') }}
-    GROUP BY code_insee_commune, nom_standard, reg_nom,typecom_texte, dep_code, population, grille_densite,grille_densite_texte, nbre_pdc
+    GROUP BY code_insee_commune, nom_standard, reg_nom,typecom_texte, dep_code, population, grille_densite, grille_densite_texte
 ),
 
 subquery_2 AS(
