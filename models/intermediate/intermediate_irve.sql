@@ -5,6 +5,7 @@ select
     code_insee_commune,
     coordonneesxy,
     CAST(puissance_nominale AS FLOAT64) AS puissance_nominale,
+    nbre_pdc,
     prise_type_ef,
     prise_type_2,
     prise_type_combo_ccs,
