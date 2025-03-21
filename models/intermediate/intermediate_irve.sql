@@ -1,10 +1,12 @@
 select
     nom_station,
-    id_station_local
+    id_station_local,
+    id_pdc_local,
     adresse_station,
     code_insee_commune,
     coordonneesxy,
-    puissance_nominale,
+    CAST(puissance_nominale AS FLOAT64) AS puissance_nominale,
+    CAST(nbre_pdc AS INT64) AS nbre_pdc,
     prise_type_ef,
     prise_type_2,
     prise_type_combo_ccs,
@@ -20,6 +22,7 @@ select
     consolidated_latitude,
     consolidated_commune,
     consolidated_is_code_insee_verified,
-    consolidated_is_code_insee_modified
+    consolidated_is_code_insee_modified,
+    consolidated_latitude||","||consolidated_longitude AS coord_lat_lon
 from {{ ref("stg_Dataset_e_quilibre__IRVE_data") }}
 
