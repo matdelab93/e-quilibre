@@ -156,9 +156,6 @@ sources:
           - name: nbInstallation
             description: "le nombre d’installations dans le cas des «Agrégation des installations de moins de 36KW)"
 
-
-
-
       - name: immatriculations_data
         identifier: voitures_par_commune_par_energie
         description: nombre d’immatriculation par communes
