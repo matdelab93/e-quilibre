@@ -9,10 +9,10 @@ source as (
 renamed as (
 
     select
-        code_insee_commune 
+        code_insee_commune AS code_insee_2, 
         consolidated_longitude,
         consolidated_latitude,
-        concat(consolidated_longitude,', ', consolidated_latitude) AS coordonnees_xy_2
+        concat('[', consolidated_longitude,',', consolidated_latitude, ']') AS coordonnees_xy_2
 
 
     from source
