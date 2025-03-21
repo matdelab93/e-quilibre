@@ -156,9 +156,6 @@ sources:
           - name: nbInstallation
             description: "le nombre d’installations dans le cas des «Agrégation des installations de moins de 36KW)"
 
-
-
-
       - name: immatriculations_data
         identifier: voitures_par_commune_par_energie
         description: nombre d’immatriculation par communes
@@ -177,3 +174,7 @@ sources:
             description: "Nombre de voitures immatriculées dans la commune nécessitant une borne de recharge électrique"
           - name: NB_VP
             description: "Nombre de voitures immatriculées dans la commune"
+
+      - name: irve_with_insee
+        identifier: irve_with_insee
+        description: table intermediaire avec longitude et latitude pour ajouter les codes insee communes manquantes
