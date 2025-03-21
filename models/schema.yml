@@ -177,3 +177,7 @@ sources:
             description: "Nombre de voitures immatriculées dans la commune nécessitant une borne de recharge électrique"
           - name: NB_VP
             description: "Nombre de voitures immatriculées dans la commune"
+            
+      - name: irve_with_insee
+        identifier: irve_with_insee
+        description: table intermediaire avec longitude et latitude pour ajouter les codes insee communes manquantes
