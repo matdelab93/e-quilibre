@@ -1,6 +1,11 @@
 SELECT
         codeiris,
-        codeinseecommune,
+        CASE 
+        WHEN codeinseecommune BETWEEN '75101' AND '75120' THEN '75056'  
+        WHEN codeinseecommune BETWEEN '69381' AND '69389' THEN '69123'  
+        WHEN codeinseecommune BETWEEN '13201' AND '13216' THEN '13055'  
+        ELSE codeinseecommune
+    END AS codeinseecommune,
         commune,
         codeepci,
         epci,

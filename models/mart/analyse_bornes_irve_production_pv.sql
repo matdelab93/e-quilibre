@@ -1,14 +1,33 @@
 SELECT 
-    irve.reg_nom, 
-    COUNT (DISTINCT irve.id_pdc_local) AS nombre_de_bornes,
-    ROUND(SUM((irve.puissance_nominale)), 2) AS puissance_totale_bornes,
-    ROUND(AVG((irve.puissance_nominale)), 2) as puissance_moyenne_par_bornes,
-    ROUND(SUM(ele.puismaxinstallee), 2) AS energie_produite_totale_kwh,
-    SUM(ele.nbinstallations) AS nombre_total_installations_PV,
-    ROUND(AVG(ele.puismaxinstallee), 2) AS moyenne_puissance_installe_par_communes_kw
-FROM {{ ref('intermediate_irve_city_join') }} AS irve
-LEFT JOIN {{ ref('intermediate_registre_elec_filtred') }} AS ele
+     irve.code_insee_commune
+    , irve.nom_standard
+    , irve.reg_nom 
+    , irve.typecom_texte
+    , irve.dep_code
+    , irve.population
+    , irve.grille_densite
+    , irve.grille_densite_texte
+    , irve.nb_de_station
+    , irve.nb_de_borne
+    , irve.puissance_totale_bornes
+    ,irve.puissance_moyenne_par_bornes
+    ,ROUND(SUM(ele.puismaxinstallee), 2) AS energie_produite_totale_kwh
+    ,COUNT(ele.nbinstallations) AS nombre_total_installations_PV
+    ,ROUND(AVG(ele.puismaxinstallee), 2) AS moyenne_puissance_installe_par_communes_kw
+FROM {{ ref('int_irve_by_city') }} AS irve
+LEFT JOIN {{ ref('intermediate_registre_elec_city') }} AS ele
     ON irve.code_insee_commune = ele.codeinseecommune  
-WHERE irve.reg_nom IS NOT NULL
-GROUP BY irve.reg_nom
-ORDER BY nombre_de_bornes DESC
+WHERE irve.code_insee_commune IS NOT NULL
+GROUP BY irve.code_insee_commune
+    , irve.nom_standard
+    , irve.reg_nom 
+    , irve.typecom_texte
+    , irve.dep_code
+    , irve.population
+    , irve.grille_densite
+    , irve.grille_densite_texte
+    , irve.nb_de_station
+    , irve.nb_de_borne
+    , irve.puissance_totale_bornes
+    ,irve.puissance_moyenne_par_bornes
+ORDER BY irve.nb_de_borne DESC
