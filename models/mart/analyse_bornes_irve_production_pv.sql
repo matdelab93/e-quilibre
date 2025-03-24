@@ -12,7 +12,7 @@ SELECT
     , irve.puissance_totale_bornes
     ,irve.puissance_moyenne_par_bornes
     ,ROUND(SUM(ele.puismaxinstallee), 2) AS energie_produite_totale_kwh
-    ,COUNT(ele.nbinstallations) AS nombre_total_installations_PV
+    ,SUM(ele.nbinstallations) AS nombre_total_installations_PV
     ,ROUND(AVG(ele.puismaxinstallee), 2) AS moyenne_puissance_installe_par_communes_kw
 FROM {{ ref('int_irve_by_city') }} AS irve
 LEFT JOIN {{ ref('intermediate_registre_elec_city') }} AS ele
