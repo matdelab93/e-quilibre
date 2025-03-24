@@ -9,6 +9,8 @@ SELECT
     , irve.grille_densite_texte
     , irve.nb_de_station
     , irve.nb_de_borne
+    , irve.date_mise_en_service_mini
+    , irve.date_mise_en_service_maxi
     , irve.puissance_totale_bornes
     ,irve.puissance_moyenne_par_bornes
     ,ROUND(SUM(ele.puismaxinstallee), 2) AS energie_produite_totale_kwh
@@ -28,6 +30,8 @@ GROUP BY irve.code_insee_commune
     , irve.grille_densite_texte
     , irve.nb_de_station
     , irve.nb_de_borne
+    , irve.date_mise_en_service_mini
+    , irve.date_mise_en_service_maxi
     , irve.puissance_totale_bornes
     ,irve.puissance_moyenne_par_bornes
 ORDER BY irve.nb_de_borne DESC
