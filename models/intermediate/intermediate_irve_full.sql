@@ -25,7 +25,9 @@ intermediate_irve.nom_station,
     intermediate_irve.consolidated_commune,
     intermediate_irve.consolidated_is_code_insee_verified,
     intermediate_irve.consolidated_is_code_insee_modified,
+    intermediate_irve.date_mise_en_service_consolidated,
     intermediate_irve.coord_lat_lon
 FROM {{ ref('intermediate_irve') }} AS intermediate_irve
 LEFT JOIN {{ ref('stg_Dataset_e_quilibre__irve_with_insee') }} AS irve_with_insee
-ON intermediate_irve.consolidated_longitude = irve_with_insee.consolidated_longitude AND intermediate_irve.consolidated_latitude = irve_with_insee.consolidated_latitude
+ON intermediate_irve.consolidated_longitude = irve_with_insee.consolidated_longitude
+ AND intermediate_irve.consolidated_latitude = irve_with_insee.consolidated_latitude
