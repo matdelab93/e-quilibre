@@ -3,7 +3,7 @@ SELECT
     NULLIF(TRIM(nom_standard), '') AS nom_standard,
     NULLIF(TRIM(nom_standard_majuscule), '') AS nom_standard_majuscule,
     NULLIF(TRIM(typecom_texte), '') AS typecom_texte,
-    reg_code,
+    CAST(reg_code AS INT64) AS reg_code,
     NULLIF(TRIM(reg_nom), '') AS reg_nom,
     dep_code,
     canton_code,
