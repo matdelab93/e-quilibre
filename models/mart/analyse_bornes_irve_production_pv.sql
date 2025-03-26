@@ -1,6 +1,7 @@
 SELECT 
      irve.code_insee_commune
     , irve.nom_standard
+    , irve.reg_code
     , irve.reg_nom 
     , irve.typecom_texte
     , irve.dep_code
@@ -22,6 +23,7 @@ LEFT JOIN {{ ref('intermediate_registre_elec_city') }} AS ele
 WHERE irve.code_insee_commune IS NOT NULL
 GROUP BY irve.code_insee_commune
     , irve.nom_standard
+    , irve.reg_code
     , irve.reg_nom 
     , irve.typecom_texte
     , irve.dep_code
