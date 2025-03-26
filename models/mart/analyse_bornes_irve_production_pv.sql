@@ -2,7 +2,8 @@ SELECT
      irve.code_insee_commune
     , irve.nom_standard
     , irve.reg_code
-    , irve.reg_nom 
+    , irve.reg_nom
+    , irve.reg_looker 
     , irve.typecom_texte
     , irve.dep_code
     , irve.population
@@ -25,6 +26,7 @@ GROUP BY irve.code_insee_commune
     , irve.nom_standard
     , irve.reg_code
     , irve.reg_nom 
+    , irve.reg_looker
     , irve.typecom_texte
     , irve.dep_code
     , irve.population

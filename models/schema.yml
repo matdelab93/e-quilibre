@@ -57,7 +57,7 @@ sources:
             description: "Texte de la grille communale de densité à 7 niveaux, selon l'INSEE"  
             
       - name: IRVE_data
-        identifier: infrastructures_de_recharge_pour_vehicules_electriques
+        identifier: infrastructures_de_recharge_pour_vehicules_electriques_updated
         description: implantation géographique des bornes de recharge et leurs caractéristiques techniques 
         columns:
           - name: nom_station 
