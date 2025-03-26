@@ -18,6 +18,9 @@ select
     paiement_autre,
     tarification,
     date_mise_en_service,
+     CASE WHEN date_mise_en_service IS NOT NULL then date_mise_en_service
+         ELSE LEAST(date_maj, DATE(created_at))
+         END as date_mise_en_service_consolidated,
     consolidated_longitude,
     consolidated_latitude,
     consolidated_commune,

@@ -57,7 +57,7 @@ sources:
             description: "Texte de la grille communale de densité à 7 niveaux, selon l'INSEE"  
             
       - name: IRVE_data
-        identifier: infrastructures_de_recharge_pour_vehicules_electriques
+        identifier: infrastructures_de_recharge_pour_vehicules_electriques_updated
         description: implantation géographique des bornes de recharge et leurs caractéristiques techniques 
         columns:
           - name: nom_station 
@@ -155,9 +155,6 @@ sources:
             description: "Energie annuelle glissante sur les 12 derniers mois stockée par le moyen de production (pour les moyens de stockage uniquement).(Unité: kWh)"
           - name: nbInstallation
             description: "le nombre d’installations dans le cas des «Agrégation des installations de moins de 36KW)"
-
-
-
 
       - name: immatriculations_data
         identifier: voitures_par_commune_par_energie
