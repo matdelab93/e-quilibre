@@ -2,7 +2,8 @@ SELECT
     code_insee_commune
     , nom_standard
     , reg_code
-    , reg_nom 
+    , reg_nom
+    , reg_looker
     , typecom_texte
     , dep_code
     , population
@@ -15,4 +16,4 @@ SELECT
     ,ROUND(AVG((puissance_nominale)), 2) as puissance_moyenne_par_bornes
     ,ROUND(SUM((puissance_nominale)), 2) AS puissance_totale_bornes,
     FROM {{ ref('intermediate_irve_city_join') }}
-    GROUP BY code_insee_commune, nom_standard, reg_code,reg_nom,typecom_texte, dep_code, population, grille_densite, grille_densite_texte
+    GROUP BY code_insee_commune, nom_standard, reg_code,reg_nom,reg_looker,typecom_texte, dep_code, population, grille_densite, grille_densite_texte

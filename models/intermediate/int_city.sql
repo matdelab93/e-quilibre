@@ -5,6 +5,7 @@ SELECT
     NULLIF(TRIM(typecom_texte), '') AS typecom_texte,
     CAST(reg_code AS INT64) AS reg_code,
     NULLIF(TRIM(reg_nom), '') AS reg_nom,
+    NULLIF(TRIM(REPLACE(reg_nom, 'Île-de-France', 'IDF')), '') AS reg_looker,
     dep_code,
     canton_code,
     NULLIF(TRIM(canton_nom), '') AS canton_nom,
